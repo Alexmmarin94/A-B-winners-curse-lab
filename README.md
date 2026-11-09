@@ -40,8 +40,8 @@ python -m streamlit run streamlit_app.py --server.address 127.0.0.1 --server.por
 **No raw CSVs, network downloads, model fitting, or Monte Carlo jobs are needed at startup.**
 The demo reads compact artifacts under `data/`. `requirements.txt` pins direct runtime packages;
 `requirements.lock.txt` records the complete development environment from macOS arm64.
-`pyproject.toml` uses the same runtime pins. CI installs `requirements-dev.txt`, which includes the production requirements and pytest. Linux installation has not
-been verified by a hosted CI run. PyMC is unnecessary for these low-dimensional models:
+`pyproject.toml` uses the same runtime pins. CI installs `requirements-dev.txt`, which includes the production requirements and pytest. Linux dependency installation, all 107 tests and the server health check passed in
+[GitHub Actions](https://github.com/Alexmmarin94/A-B-winners-curse-lab/actions/runs/42647815609). PyMC is unnecessary for these low-dimensional models:
 analytic integration and checked numerical quadrature integrate hyperparameter uncertainty.
 
 ## What changed in v0.7.0

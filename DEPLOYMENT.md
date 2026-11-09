@@ -40,7 +40,8 @@ The `.python-version` file documents the local version; select 3.12 explicitly i
 
 Subsequent changes to the deployed branch are picked up by Community Cloud. Inspect its build logs
 if a dependency installation fails. Do not substitute unsupported versions without running the tests.
-The source project has 107 passing local tests; GitHub Actions provides the Linux verification.
+All 107 tests, dependency checks and the server health check also passed on Linux:
+[verified GitHub Actions run](https://github.com/Alexmmarin94/A-B-winners-curse-lab/actions/runs/42647815609).
 
 ## Local development
 
