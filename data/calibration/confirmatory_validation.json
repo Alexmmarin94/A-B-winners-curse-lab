@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "artifact_id": "0ecc12966eaec4b87a76092c0aed1a7145c23d3b2abdbcfa4171d759479c13d2",
+  "partition": "confirmatory",
+  "source_sha256": "b2a88288c88f2b67d40413c9bdbebe79a1c0b5d9a9354180549f59f3bfff685f",
+  "real_experiments": 17833,
+  "simulated_experiments": 6000,
+  "simulation_seed": 8675309,
+  "sparse_real_pairs": 298,
+  "predictive_check": {
+    "mean_log_density_gain_over_zero_effect_nats": 0.48415796965550884,
+    "mean_gain_interval_95": [
+      0.45572399481752857,
+      0.5125919444934891
+    ],
+    "note": "Paired mean score contrast under approximate Normal likelihood, not an estimator-performance benchmark."
+  },
+  "observable_comparisons": {
+    "pair_impressions": {
+      "confirmatory": {
+        "q01": 3041.0,
+        "q10": 4118.2,
+        "q50": 6184.0,
+        "q90": 10324.0,
+        "q99": 15269.000000000007
+      },
+      "synthetic": {
+        "q01": 3041.0,
+        "q10": 4167.0,
+        "q50": 6210.0,
+        "q90": 10321.0,
+        "q99": 13934.0
+      },
+      "ks_distance": 0.021588244640086796,
+      "wasserstein_distance": 95.0460485429636
+    },
+    "pooled_ctr": {
+      "confirmatory": {
+        "q01": 0.0021166984868735508,
+        "q10": 0.004713731487136736,
+        "q50": 0.01161003926925047,
+        "q90": 0.026338679400304463,
+        "q99": 0.04633621094708127
+      },
+      "synthetic": {
+        "q01": 0.0017786290874264605,
+        "q10": 0.004963898916967509,
+        "q50": 0.012637119025732047,
+        "q90": 0.028050410846699222,
+        "q99": 0.05533209533292363
+      },
+      "ks_distance": 0.06480094020448979,
+      "wasserstein_distance": 0.0012659903195139835
+    },
+    "observed_effect_pp": {
+      "confirmatory": {
+        "q01": -1.5781916046552946,
+        "q10": -0.6158309836170661,
+        "q50": -0.002726003220814184,
+        "q90": 0.6202446766685461,
+        "q99": 1.5687910866965828
+      },
+      "synthetic": {
+        "q01": -1.851459518441534,
+        "q10": -0.5959442800686394,
+        "q50": 3.719813728040797e-05,
+        "q90": 0.6202509050220261,
+        "q99": 1.9077389154740776
+      },
+      "ks_distance": 0.019071599469148964,
+      "wasserstein_distance": 0.04130064865679557
+    },
+    "observed_log_odds_ratio": {
+      "confirmatory": {
+        "q01": -1.2089345986269722,
+        "q10": -0.5466193532189454,
+        "q50": -0.0028349238734621807,
+        "q90": 0.5351252864927847,
+        "q99": 1.2208421559673046
+      },
+      "synthetic": {
+        "q01": -1.0212952121851353,
+        "q10": -0.48027107722648155,
+        "q50": 0.0002691602549327321,
+        "q90": 0.4844911027501011,
+        "q99": 1.0691540968815845
+      },
+      "ks_distance": 0.03219099422419111,
+      "wasserstein_distance": 0.03960968311495114
+    }
+  },
+  "limitations": [
+    "Descriptive diagnostics; no threshold was used to tune the frozen artifact.",
+    "One fixed synthetic validation portfolio; sampling variation is not a full Monte Carlo benchmark.",
+    "No true effects exist for archive observations, so this cannot validate latent-effect recovery.",
+    "Holdout outcome distributions remain unused for calibration or this check."
+  ]
+}

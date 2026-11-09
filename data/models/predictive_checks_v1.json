@@ -1,0 +1,528 @@
+{
+  "version": "predictive-checks-v1",
+  "scenarios": {
+    "retention": {
+      "n": 3000,
+      "source": {
+        "partition": "independent hypothetical program",
+        "simulation_seed": 93000000
+      },
+      "observations_sha256": "19654e761d251b58ee668a4fbfd61deed467a41f96c9ef36b9d0d39e50a07cb9",
+      "methods": {
+        "empirical_bayes": {
+          "artifact_id": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+          "mean_log_density_nats": {
+            "mean": 2.34987237637057,
+            "interval_95": [
+              2.3215100238931066,
+              2.378234728848033
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9163333333333333,
+            "interval_95": [
+              0.9064195791780867,
+              0.92624708748858
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            299,
+            202,
+            343,
+            415,
+            430,
+            329,
+            242,
+            217,
+            195,
+            328
+          ]
+        },
+        "hierarchical": {
+          "artifact_id": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+          "mean_log_density_nats": {
+            "mean": 2.3499366625666718,
+            "interval_95": [
+              2.3216176464815934,
+              2.37825567865175
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9163333333333333,
+            "interval_95": [
+              0.9064195791780867,
+              0.92624708748858
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            299,
+            202,
+            343,
+            415,
+            430,
+            329,
+            242,
+            218,
+            194,
+            328
+          ]
+        },
+        "robust": {
+          "artifact_id": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de",
+          "mean_log_density_nats": {
+            "mean": 2.3188401997861554,
+            "interval_95": [
+              2.289084753620559,
+              2.3485956459517516
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9543333333333334,
+            "interval_95": [
+              0.9468587864235065,
+              0.9618078802431602
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            229,
+            165,
+            224,
+            346,
+            419,
+            403,
+            308,
+            280,
+            246,
+            380
+          ]
+        }
+      }
+    },
+    "acquisition": {
+      "n": 3000,
+      "source": {
+        "partition": "independent hypothetical program",
+        "simulation_seed": 93000000
+      },
+      "observations_sha256": "c7ab8b1898af5abf81cb6ab4a4d4f410adb9cdfd9de523515c08aca89ba416c7",
+      "methods": {
+        "empirical_bayes": {
+          "artifact_id": "0e8d3dd6f66e99a509eb65be96d53d824de2260413ecf2f18973747b0edb9a35",
+          "mean_log_density_nats": {
+            "mean": 3.179192683767349,
+            "interval_95": [
+              3.15290478322296,
+              3.2054805843117378
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9383333333333334,
+            "interval_95": [
+              0.9297206401149579,
+              0.9469460265517088
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            244,
+            267,
+            300,
+            360,
+            400,
+            340,
+            312,
+            243,
+            205,
+            329
+          ]
+        },
+        "hierarchical": {
+          "artifact_id": "3e48d84d48b00046391730601b374104165157b6e4925ab2c70bc9215be2df82",
+          "mean_log_density_nats": {
+            "mean": 3.17917635451077,
+            "interval_95": [
+              3.152927090794687,
+              3.2054256182268532
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.939,
+            "interval_95": [
+              0.9304309459416207,
+              0.9475690540583792
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            244,
+            266,
+            301,
+            360,
+            400,
+            340,
+            313,
+            242,
+            206,
+            328
+          ]
+        },
+        "robust": {
+          "artifact_id": "c551beec7a80d8b769a3f972956361bdca3d86bd5133556006389189ba0a6cfe",
+          "mean_log_density_nats": {
+            "mean": 3.1488191695603636,
+            "interval_95": [
+              3.1206996244851943,
+              3.176938714635533
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.96,
+            "interval_95": [
+              0.9529838190494652,
+              0.9670161809505348
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            194,
+            195,
+            276,
+            304,
+            370,
+            357,
+            354,
+            294,
+            275,
+            381
+          ]
+        }
+      }
+    },
+    "onboarding": {
+      "n": 3000,
+      "source": {
+        "partition": "independent hypothetical program",
+        "simulation_seed": 93000000
+      },
+      "observations_sha256": "1c788237fdc7147fa10ddb5b137749f01d9460a94ac0f54ca6e790c57a55ab1b",
+      "methods": {
+        "empirical_bayes": {
+          "artifact_id": "6d7883e06bd797f5a31510266372ea76e176b95c985267303ad568509349d769",
+          "mean_log_density_nats": {
+            "mean": 2.142695336417228,
+            "interval_95": [
+              2.1133025153609295,
+              2.1720881574735267
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.912,
+            "interval_95": [
+              0.9018568248648142,
+              0.9221431751351858
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            283,
+            201,
+            308,
+            393,
+            466,
+            352,
+            272,
+            212,
+            183,
+            330
+          ]
+        },
+        "hierarchical": {
+          "artifact_id": "b62a4d9ea15877373541721eba43b0f3c3efdf18f91e89bc7291447f0713fe90",
+          "mean_log_density_nats": {
+            "mean": 2.1427726094023782,
+            "interval_95": [
+              2.1134256025373443,
+              2.172119616267412
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9123333333333333,
+            "interval_95": [
+              0.9022075370160985,
+              0.9224591296505682
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            283,
+            200,
+            309,
+            393,
+            466,
+            352,
+            272,
+            212,
+            183,
+            330
+          ]
+        },
+        "robust": {
+          "artifact_id": "4104acebb32691c29a61f527d05dc96b091e9070dee9550ec3aa559552927636",
+          "mean_log_density_nats": {
+            "mean": 2.114224413348823,
+            "interval_95": [
+              2.08345207904675,
+              2.1449967476508958
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.951,
+            "interval_95": [
+              0.943270997149715,
+              0.958729002850285
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            243,
+            150,
+            246,
+            295,
+            438,
+            423,
+            328,
+            272,
+            220,
+            385
+          ]
+        }
+      }
+    },
+    "monetization": {
+      "n": 3000,
+      "source": {
+        "partition": "independent hypothetical program",
+        "simulation_seed": 93000000
+      },
+      "observations_sha256": "0de7b11721a4c916876ddbddd4e939002eb0db0fbe12519b9ab11505b4cee242",
+      "methods": {
+        "empirical_bayes": {
+          "artifact_id": "02d739190d811541deae745f070013180f5aeff38f35d2dc47675407fdf3fb6d",
+          "mean_log_density_nats": {
+            "mean": 3.5748558799351002,
+            "interval_95": [
+              3.5476824543939225,
+              3.602029305476278
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.939,
+            "interval_95": [
+              0.9304309459416207,
+              0.9475690540583792
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            241,
+            233,
+            312,
+            352,
+            360,
+            346,
+            305,
+            271,
+            250,
+            330
+          ]
+        },
+        "hierarchical": {
+          "artifact_id": "9635266d5cd5914a9c7bec2d66c09ad478abc35d0480d9c618d82b41124c8df4",
+          "mean_log_density_nats": {
+            "mean": 3.5748609239989975,
+            "interval_95": [
+              3.547728602477202,
+              3.601993245520793
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.939,
+            "interval_95": [
+              0.9304309459416207,
+              0.9475690540583792
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            241,
+            233,
+            312,
+            351,
+            361,
+            346,
+            305,
+            272,
+            249,
+            330
+          ]
+        },
+        "robust": {
+          "artifact_id": "3db02589e47fc19c420d4702538a378344c95070c341747da951e917fdb5c79b",
+          "mean_log_density_nats": {
+            "mean": 3.546878426132133,
+            "interval_95": [
+              3.5181765581829882,
+              3.575580294081278
+            ],
+            "replications": 3000
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9566666666666667,
+            "interval_95": [
+              0.9493766832769813,
+              0.963956650056352
+            ],
+            "replications": 3000
+          },
+          "pit_decile_counts": [
+            189,
+            205,
+            269,
+            318,
+            341,
+            362,
+            314,
+            325,
+            290,
+            387
+          ]
+        }
+      }
+    },
+    "upworthy_ctr": {
+      "n": 17833,
+      "source": {
+        "partition": "confirmatory",
+        "sha256": "b2a88288c88f2b67d40413c9bdbebe79a1c0b5d9a9354180549f59f3bfff685f"
+      },
+      "observations_sha256": "74ea9ad7f7126e6d119f4ac3146301cca0358bf9c5cce08319a3b958beefd855",
+      "methods": {
+        "empirical_bayes": {
+          "artifact_id": "c74ba2fe602514ddfb28bf7c2c85a7d8cc4fd4315327b2dda845ac47f2adeab3",
+          "mean_log_density_nats": {
+            "mean": 3.8167847849347303,
+            "interval_95": [
+              3.7893958583869614,
+              3.844173711482499
+            ],
+            "replications": 17833
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9156619749901868,
+            "interval_95": [
+              0.9115829454967708,
+              0.9197410044836027
+            ],
+            "replications": 17833
+          },
+          "pit_decile_counts": [
+            1898,
+            1547,
+            1730,
+            1833,
+            1975,
+            1910,
+            1856,
+            1634,
+            1519,
+            1931
+          ]
+        },
+        "hierarchical": {
+          "artifact_id": "7883c016cce996e1d6c3372801c9ef2f50a28037a3b91ec16af3844ecd5ebe12",
+          "mean_log_density_nats": {
+            "mean": 3.8171819387118644,
+            "interval_95": [
+              3.789857578830912,
+              3.8445062985928167
+            ],
+            "replications": 17833
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9158302024336904,
+            "interval_95": [
+              0.9117548688389167,
+              0.9199055360284641
+            ],
+            "replications": 17833
+          },
+          "pit_decile_counts": [
+            1893,
+            1552,
+            1730,
+            1832,
+            1976,
+            1912,
+            1857,
+            1631,
+            1522,
+            1928
+          ]
+        },
+        "robust": {
+          "artifact_id": "dd4735a53529a6f06efcd460d5d24f0bd5193bcec07678dffddddd30a715214b",
+          "mean_log_density_nats": {
+            "mean": 3.8753253217596515,
+            "interval_95": [
+              3.8570517842758685,
+              3.8935988592434345
+            ],
+            "replications": 17833
+          },
+          "central_95_predictive_coverage": {
+            "mean": 0.9105030000560758,
+            "interval_95": [
+              0.9063129185433654,
+              0.9146930815687861
+            ],
+            "replications": 17833
+          },
+          "pit_decile_counts": [
+            2267,
+            1652,
+            1652,
+            1669,
+            1712,
+            1663,
+            1706,
+            1586,
+            1660,
+            2266
+          ]
+        }
+      }
+    }
+  },
+  "interpretation": "Predictions of new observed rate differences conditional on their estimated SEs and frozen history. No new effect is used to update its own predictive distribution.",
+  "limitations": [
+    "Approximate Normal observation model, not exact binomial count predictions.",
+    "Coverage refers to new observed estimates, not posterior intervals for selected true effects.",
+    "SEs are estimated from the same counts and treated as fixed; PIT need not be uniform under misspecification.",
+    "Intervals treat experiments as independent and histories as fixed. No parameters are tuned using this check."
+  ],
+  "artifact_id": "e97189eb2148ffcee13acf415f18329e80a94a9fd5e29f5ca09ddb1d7019b40e"
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "version": "upworthy-paired-ctr-v1",
+    "training_partition": "exploratory",
+    "pair_seed": 314159,
+    "method": "symmetric histogram mixture with heteroscedastic approximate Normal log-odds likelihood",
+    "effect_scale": "log odds ratio between outcome-blind randomly oriented variants",
+    "edges": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      0.8,
+      1.6,
+      3.2
+    ],
+    "design_reservoir_size": 512,
+    "design_seed": 271828,
+    "half_count_correction": 0.5
+  },
+  "source_hashes": {
+    "exploratory": "8368313b060f4015a0c6fb34e6d788163cee29554144aba9390b14922eb9d8ce",
+    "confirmatory": "b2a88288c88f2b67d40413c9bdbebe79a1c0b5d9a9354180549f59f3bfff685f",
+    "holdout": "93832660b831aca16bbe314c60dba4a6815b0a5f9cdded1217671cfbfa5186ea",
+    "undeployed": "ea6a7bf23dc2a8edc3fe7e5eedbba0f9149a1dbd0640e89fdcacc1a156d8de82"
+  },
+  "partition_overlap_counts": {
+    "exploratory / confirmatory": 0,
+    "exploratory / holdout": 0,
+    "exploratory / undeployed": 0,
+    "confirmatory / holdout": 0,
+    "confirmatory / undeployed": 5,
+    "holdout / undeployed": 1
+  },
+  "partitions": {
+    "exploratory": {
+      "partition": "exploratory",
+      "rows_in": 22666,
+      "experiments_in": 4873,
+      "missing_id_rows": 0,
+      "rows_retained": 18388,
+      "experiments_retained": 3823,
+      "experiments_excluded": 1050,
+      "reason_counts_including_missing_id_quarantine_rows": {
+        "missing_experiment_id": 0,
+        "invalid_date": 0,
+        "randomization_date_window": 1050,
+        "invalid_counts": 0,
+        "missing_package_id": 0,
+        "duplicate_package_id": 0,
+        "fewer_than_two_packages": 0
+      },
+      "risk_columns": [],
+      "flag_date_disagreement_rows": 0,
+      "boundary_policy": "[2013-06-25, 2014-01-11), recorded dates, whole experiment, union with flags",
+      "note": "Reasons overlap; do not add reason counts. Missing-ID rows are quarantined separately."
+    },
+    "confirmatory": {
+      "partition": "confirmatory",
+      "rows_in": 105551,
+      "experiments_in": 22743,
+      "missing_id_rows": 0,
+      "rows_retained": 85693,
+      "experiments_retained": 17833,
+      "experiments_excluded": 4910,
+      "reason_counts_including_missing_id_quarantine_rows": {
+        "missing_experiment_id": 0,
+        "invalid_date": 0,
+        "randomization_date_window": 4910,
+        "invalid_counts": 0,
+        "missing_package_id": 0,
+        "duplicate_package_id": 0,
+        "fewer_than_two_packages": 2
+      },
+      "risk_columns": [],
+      "flag_date_disagreement_rows": 0,
+      "boundary_policy": "[2013-06-25, 2014-01-11), recorded dates, whole experiment, union with flags",
+      "note": "Reasons overlap; do not add reason counts. Missing-ID rows are quarantined separately."
+    },
+    "holdout": {
+      "partition": "holdout",
+      "rows_in": 22600,
+      "experiments_in": 4871,
+      "missing_id_rows": 0,
+      "rows_retained": 18296,
+      "experiments_retained": 3812,
+      "experiments_excluded": 1059,
+      "reason_counts_including_missing_id_quarantine_rows": {
+        "missing_experiment_id": 0,
+        "invalid_date": 0,
+        "randomization_date_window": 1059,
+        "invalid_counts": 0,
+        "missing_package_id": 0,
+        "duplicate_package_id": 0,
+        "fewer_than_two_packages": 0
+      },
+      "risk_columns": [],
+      "flag_date_disagreement_rows": 0,
+      "boundary_policy": "[2013-06-25, 2014-01-11), recorded dates, whole experiment, union with flags",
+      "note": "Reasons overlap; do not add reason counts. Missing-ID rows are quarantined separately."
+    },
+    "undeployed": {
+      "partition": "undeployed",
+      "rows_in": 78232,
+      "experiments_in": 18514,
+      "missing_id_rows": 57,
+      "rows_retained": 0,
+      "experiments_retained": 0,
+      "experiments_excluded": 18514,
+      "reason_counts_including_missing_id_quarantine_rows": {
+        "missing_experiment_id": 57,
+        "invalid_date": 0,
+        "randomization_date_window": 83,
+        "invalid_counts": 18514,
+        "missing_package_id": 0,
+        "duplicate_package_id": 0,
+        "fewer_than_two_packages": 336,
+        "undeployed_not_completed": 18571
+      },
+      "risk_columns": [],
+      "flag_date_disagreement_rows": 0,
+      "boundary_policy": "[2013-06-25, 2014-01-11), recorded dates, whole experiment, union with flags",
+      "note": "Reasons overlap; do not add reason counts. Missing-ID rows are quarantined separately."
+    }
+  }
+}

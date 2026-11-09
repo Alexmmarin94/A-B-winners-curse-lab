@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "Inventory only; not a data-quality or calibration report.",
+  "files": [
+    {
+      "filename": "upworthy-archive-confirmatory-packages-03.12.2020.csv",
+      "bytes": 66517697,
+      "sha256": "b2a88288c88f2b67d40413c9bdbebe79a1c0b5d9a9354180549f59f3bfff685f",
+      "rows": 105551,
+      "columns": [
+        "",
+        "created_at",
+        "updated_at",
+        "clickability_test_id",
+        "excerpt",
+        "headline",
+        "lede",
+        "slug",
+        "eyecatcher_id",
+        "impressions",
+        "clicks",
+        "significance",
+        "first_place",
+        "winner",
+        "share_text",
+        "square",
+        "test_week"
+      ],
+      "missing_required_columns": [],
+      "randomization_risk_columns": []
+    },
+    {
+      "filename": "upworthy-archive-exploratory-packages-03.12.2020.csv",
+      "bytes": 14260949,
+      "sha256": "8368313b060f4015a0c6fb34e6d788163cee29554144aba9390b14922eb9d8ce",
+      "rows": 22666,
+      "columns": [
+        "",
+        "created_at",
+        "updated_at",
+        "clickability_test_id",
+        "excerpt",
+        "headline",
+        "lede",
+        "slug",
+        "eyecatcher_id",
+        "impressions",
+        "clicks",
+        "significance",
+        "first_place",
+        "winner",
+        "share_text",
+        "square",
+        "test_week"
+      ],
+      "missing_required_columns": [],
+      "randomization_risk_columns": []
+    },
+    {
+      "filename": "upworthy-archive-holdout-packages-03.12.2020.csv",
+      "bytes": 14174776,
+      "sha256": "93832660b831aca16bbe314c60dba4a6815b0a5f9cdded1217671cfbfa5186ea",
+      "rows": 22600,
+      "columns": [
+        "",
+        "created_at",
+        "updated_at",
+        "clickability_test_id",
+        "excerpt",
+        "headline",
+        "lede",
+        "slug",
+        "eyecatcher_id",
+        "impressions",
+        "clicks",
+        "significance",
+        "first_place",
+        "winner",
+        "share_text",
+        "square",
+        "test_week"
+      ],
+      "missing_required_columns": [],
+      "randomization_risk_columns": []
+    },
+    {
+      "filename": "upworthy-archive-undeployed-packages.01.12.2021.csv",
+      "bytes": 33168354,
+      "sha256": "ea6a7bf23dc2a8edc3fe7e5eedbba0f9149a1dbd0640e89fdcacc1a156d8de82",
+      "rows": 78232,
+      "columns": [
+        "_id",
+        "created_at",
+        "updated_at",
+        "clickability_test_id",
+        "excerpt",
+        "headline",
+        "lede",
+        "slug",
+        "eyecatcher_id",
+        "impressions",
+        "clicks",
+        "significance",
+        "first_place",
+        "winner",
+        "share_text",
+        "square"
+      ],
+      "missing_required_columns": [],
+      "randomization_risk_columns": []
+    }
+  ]
+}

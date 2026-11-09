@@ -1,0 +1,3083 @@
+{
+  "schema_version": 1,
+  "version": "stress-v2",
+  "replications": 30,
+  "size": 60,
+  "methods": [
+    "naive",
+    "empirical_bayes",
+    "hierarchical",
+    "robust"
+  ],
+  "seed_start": 92000000,
+  "selection_policy": "Choose at most one positive variant with Holm-adjusted two-sided p < .05, ranked by observed effect.",
+  "intervals": "Student-t confidence intervals across independent portfolio-level metrics; frozen fitted histories.",
+  "decision_utility": "Each experiment has a separate deployment population of 10,000, one metric, and no interactions. Oracle chooses max(0, true effects). Each estimator chooses the variant with the highest positive estimated mean, otherwise no launch. No significance threshold for this separate decision comparison.",
+  "cumulative_estimand": "Sum of selected effects times 10,000 for disjoint equal-sized populations. Not compounded uplift or shared-population ROI.",
+  "fairness": "Same supported experiments, counts, contrasts, and covariance for every estimator. No truth enters fitting or selection. Unsupported groups are excluded from all estimators and counted.",
+  "limitations": [
+    "Fixed training artifacts; uncertainty intervals do not include new-history variability.",
+    "All stress mechanisms except the paired CTR case are hypothetical. Robust mixture fixes its center at zero and its broad-component assumptions.",
+    "Full A/B/n is implemented in the benchmark generator and covariance-aware predictions, not the nine-card A/B challenge UI."
+  ],
+  "cases": {
+    "matched": {
+      "description": "Original hypothetical retention mechanism; independent evaluation outcomes.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92000000,
+        92000001,
+        92000002,
+        92000003,
+        92000004,
+        92000005,
+        92000006,
+        92000007,
+        92000008,
+        92000009,
+        92000010,
+        92000011,
+        92000012,
+        92000013,
+        92000014,
+        92000015,
+        92000016,
+        92000017,
+        92000018,
+        92000019,
+        92000020,
+        92000021,
+        92000022,
+        92000023,
+        92000024,
+        92000025,
+        92000026,
+        92000027,
+        92000028,
+        92000029
+      ],
+      "selected_total": 455,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 0.29087836610603424,
+            "interval_95": [
+              0.23299897356093116,
+              0.34875775865113734
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6272183092834004,
+            "interval_95": [
+              0.5814812185481492,
+              0.6729554000186516
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7955711901196116,
+            "interval_95": [
+              0.7387025798263315,
+              0.8524398004128918
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9217340020087698,
+            "interval_95": [
+              0.8973063032264604,
+              0.9461617007910791
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.6624277089384003,
+            "interval_95": [
+              0.5315866658556975,
+              0.7932687520211031
+            ],
+            "replications": 26
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 460.89584016504057,
+            "interval_95": [
+              344.95996173075275,
+              576.8317185993284
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.739464624342505,
+            "interval_95": [
+              3.0768912175415704,
+              4.40203803114344
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 455,
+          "exceptional_selected": 69
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.05745859196608078,
+            "interval_95": [
+              -0.11422482817258528,
+              -0.0006923557595762755
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.5907488585338293,
+            "interval_95": [
+              0.5475291818634607,
+              0.6339685352041979
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7524640595290278,
+            "interval_95": [
+              0.6983871719967172,
+              0.8065409470613385
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.929297206777857,
+            "interval_95": [
+              0.899807420810088,
+              0.958786992745626
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.7831354316199004,
+            "interval_95": [
+              0.6249663704402948,
+              0.941304492799506
+            ],
+            "replications": 26
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 186.5869171576974,
+            "interval_95": [
+              127.849647375459,
+              245.3241869399358
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.5942945523829626,
+            "interval_95": [
+              2.9138697987560245,
+              4.274719306009901
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.036469450749570954,
+            "interval_95": [
+              -0.07440618817410145,
+              0.0014672866749595448
+            ],
+            "replications": 30
+          },
+          "selected_supported": 455,
+          "exceptional_selected": 69
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.056916312238951335,
+            "interval_95": [
+              -0.11367717468412121,
+              -0.00015544979378145918
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.5906406027426134,
+            "interval_95": [
+              0.5474422593301858,
+              0.6338389461550411
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7523287232923319,
+            "interval_95": [
+              0.698277249501012,
+              0.8063801970836518
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.929297206777857,
+            "interval_95": [
+              0.899807420810088,
+              0.958786992745626
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.7821492006849847,
+            "interval_95": [
+              0.6239552587365653,
+              0.9403431426334041
+            ],
+            "replications": 26
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 186.40821666977575,
+            "interval_95": [
+              127.6918251169959,
+              245.1246082225556
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.5942945523829626,
+            "interval_95": [
+              2.9138697987560245,
+              4.274719306009901
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.036577706540786875,
+            "interval_95": [
+              -0.07445858740700942,
+              0.0013031743254356756
+            ],
+            "replications": 30
+          },
+          "selected_supported": 455,
+          "exceptional_selected": 69
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.0919059028566664,
+            "interval_95": [
+              -0.15055089141616945,
+              -0.03326091429716336
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.5981645360869348,
+            "interval_95": [
+              0.5550960543320445,
+              0.6412330178418251
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7642591698024113,
+            "interval_95": [
+              0.7100786787940133,
+              0.8184396608108092
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9283843832179746,
+            "interval_95": [
+              0.8964735508196907,
+              0.9602952156162584
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.8071405107263241,
+            "interval_95": [
+              0.6377179379224791,
+              0.9765630835301691
+            ],
+            "replications": 26
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 212.93187017809896,
+            "interval_95": [
+              152.27459606227748,
+              273.5891442939204
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.739464624342505,
+            "interval_95": [
+              3.0768912175415704,
+              4.40203803114344
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.02905377319646575,
+            "interval_95": [
+              -0.06963830848126579,
+              0.011530762088334284
+            ],
+            "replications": 30
+          },
+          "selected_supported": 455,
+          "exceptional_selected": 69
+        }
+      }
+    },
+    "null": {
+      "description": "Exactly zero effects in every treatment; original hypothetical traffic.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92001000,
+        92001001,
+        92001002,
+        92001003,
+        92001004,
+        92001005,
+        92001006,
+        92001007,
+        92001008,
+        92001009,
+        92001010,
+        92001011,
+        92001012,
+        92001013,
+        92001014,
+        92001015,
+        92001016,
+        92001017,
+        92001018,
+        92001019,
+        92001020,
+        92001021,
+        92001022,
+        92001023,
+        92001024,
+        92001025,
+        92001026,
+        92001027,
+        92001028,
+        92001029
+      ],
+      "selected_total": 42,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 1.6633567417054222,
+            "interval_95": [
+              1.427872425530019,
+              1.8988410578808255
+            ],
+            "replications": 23
+          },
+          "mae_pp": {
+            "mean": 1.6633567417054222,
+            "interval_95": [
+              1.427872425530019,
+              1.8988410578808255
+            ],
+            "replications": 23
+          },
+          "rmse_pp": {
+            "mean": 1.691376843738589,
+            "interval_95": [
+              1.4521017733858517,
+              1.9306519140913263
+            ],
+            "replications": 23
+          },
+          "coverage": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 23
+          },
+          "exceptional_mae_pp": {
+            "mean": null,
+            "interval_95": null,
+            "replications": 0
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 237.4508772252252,
+            "interval_95": [
+              156.35035123827151,
+              318.5514032121789
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 23
+          },
+          "selected_supported": 42,
+          "exceptional_selected": 0
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": 1.513920109103611,
+            "interval_95": [
+              1.3271380517619968,
+              1.700702166445225
+            ],
+            "replications": 23
+          },
+          "mae_pp": {
+            "mean": 1.513920109103611,
+            "interval_95": [
+              1.3271380517619968,
+              1.700702166445225
+            ],
+            "replications": 23
+          },
+          "rmse_pp": {
+            "mean": 1.5310970126593897,
+            "interval_95": [
+              1.3428965551525316,
+              1.7192974701662478
+            ],
+            "replications": 23
+          },
+          "coverage": {
+            "mean": 0.04710144927536231,
+            "interval_95": [
+              -0.009174046417896264,
+              0.10337694496862089
+            ],
+            "replications": 23
+          },
+          "exceptional_mae_pp": {
+            "mean": null,
+            "interval_95": null,
+            "replications": 0
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 214.23686125595472,
+            "interval_95": [
+              142.94197534077335,
+              285.5317471711361
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.14943663260181103,
+            "interval_95": [
+              -0.20201439629215584,
+              -0.09685886891146624
+            ],
+            "replications": 23
+          },
+          "selected_supported": 42,
+          "exceptional_selected": 0
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": 1.514042255778334,
+            "interval_95": [
+              1.3272156439860041,
+              1.7008688675706638
+            ],
+            "replications": 23
+          },
+          "mae_pp": {
+            "mean": 1.514042255778334,
+            "interval_95": [
+              1.3272156439860041,
+              1.7008688675706638
+            ],
+            "replications": 23
+          },
+          "rmse_pp": {
+            "mean": 1.5312285809149628,
+            "interval_95": [
+              1.342981439319155,
+              1.7194757225107706
+            ],
+            "replications": 23
+          },
+          "coverage": {
+            "mean": 0.04710144927536231,
+            "interval_95": [
+              -0.009174046417896264,
+              0.10337694496862089
+            ],
+            "replications": 23
+          },
+          "exceptional_mae_pp": {
+            "mean": null,
+            "interval_95": null,
+            "replications": 0
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 214.25586393030906,
+            "interval_95": [
+              142.9528667740628,
+              285.55886108655534
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.1493144859270882,
+            "interval_95": [
+              -0.20184275576309907,
+              -0.09678621609107735
+            ],
+            "replications": 23
+          },
+          "selected_supported": 42,
+          "exceptional_selected": 0
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": 1.460130357149233,
+            "interval_95": [
+              1.2829669742525378,
+              1.6372937400459282
+            ],
+            "replications": 23
+          },
+          "mae_pp": {
+            "mean": 1.460130357149233,
+            "interval_95": [
+              1.2829669742525378,
+              1.6372937400459282
+            ],
+            "replications": 23
+          },
+          "rmse_pp": {
+            "mean": 1.4756501149956147,
+            "interval_95": [
+              1.2972132735433453,
+              1.6540869564478842
+            ],
+            "replications": 23
+          },
+          "coverage": {
+            "mean": 0.13188405797101452,
+            "interval_95": [
+              0.03964017518467303,
+              0.224127940757356
+            ],
+            "replications": 23
+          },
+          "exceptional_mae_pp": {
+            "mean": null,
+            "interval_95": null,
+            "replications": 0
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 206.09681853300833,
+            "interval_95": [
+              137.90027840163697,
+              274.2933586643797
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.20322638455618897,
+            "interval_95": [
+              -0.26651226304296416,
+              -0.13994050606941374
+            ],
+            "replications": 23
+          },
+          "selected_supported": 42,
+          "exceptional_selected": 0
+        }
+      }
+    },
+    "heterogeneous": {
+      "description": "Two equally likely families with log-odds effects Uniform(-.25,.05) or Uniform(.05,.35). Pooled historical model is unchanged.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92002000,
+        92002001,
+        92002002,
+        92002003,
+        92002004,
+        92002005,
+        92002006,
+        92002007,
+        92002008,
+        92002009,
+        92002010,
+        92002011,
+        92002012,
+        92002013,
+        92002014,
+        92002015,
+        92002016,
+        92002017,
+        92002018,
+        92002019,
+        92002020,
+        92002021,
+        92002022,
+        92002023,
+        92002024,
+        92002025,
+        92002026,
+        92002027,
+        92002028,
+        92002029
+      ],
+      "selected_total": 828,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 0.14008268845491859,
+            "interval_95": [
+              0.08659345947274252,
+              0.19357191743709465
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.5915094108152645,
+            "interval_95": [
+              0.5486077408856771,
+              0.634411080744852
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7551001654121848,
+            "interval_95": [
+              0.7044922975047951,
+              0.8057080333195745
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9458081340750728,
+            "interval_95": [
+              0.9320671072073765,
+              0.9595491609427691
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.5910396082457436,
+            "interval_95": [
+              0.5239808782752899,
+              0.6580983382161973
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 430.9570909544206,
+            "interval_95": [
+              305.59188897087887,
+              556.3222929379623
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.71901593519793,
+            "interval_95": [
+              1.9893166467055399,
+              3.44871522369032
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 828,
+          "exceptional_selected": 287
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.32930107815580123,
+            "interval_95": [
+              -0.38289440378925177,
+              -0.2757077525223507
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6387527605134107,
+            "interval_95": [
+              0.6000961717371618,
+              0.6774093492896596
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.8192944740933623,
+            "interval_95": [
+              0.7710456552031706,
+              0.867543292983554
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9247323590056227,
+            "interval_95": [
+              0.9033298972371051,
+              0.9461348207741402
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.8331209869087658,
+            "interval_95": [
+              0.7626061837594565,
+              0.903635790058075
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 914.5930552961948,
+            "interval_95": [
+              762.7886052540055,
+              1066.3975053383842
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.9644543172707647,
+            "interval_95": [
+              2.128308505729988,
+              3.800600128811541
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.04724334969814626,
+            "interval_95": [
+              0.0056494579947067025,
+              0.08883724140158582
+            ],
+            "replications": 30
+          },
+          "selected_supported": 828,
+          "exceptional_selected": 287
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.3283602839022589,
+            "interval_95": [
+              -0.381950383627614,
+              -0.2747701841769038
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6383651821106189,
+            "interval_95": [
+              0.5997077110238853,
+              0.6770226531973524
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.8188007127820172,
+            "interval_95": [
+              0.7705549727272941,
+              0.8670464528367402
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9247323590056227,
+            "interval_95": [
+              0.9033298972371051,
+              0.9461348207741402
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.8320801797940649,
+            "interval_95": [
+              0.7615651913688315,
+              0.9025951682192983
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 912.2276892115262,
+            "interval_95": [
+              760.6481117920786,
+              1063.8072666309738
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.9644543172707647,
+            "interval_95": [
+              2.128308505729988,
+              3.800600128811541
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0468557712953545,
+            "interval_95": [
+              0.005338836398650987,
+              0.08837270619205802
+            ],
+            "replications": 30
+          },
+          "selected_supported": 828,
+          "exceptional_selected": 287
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.3066742462701339,
+            "interval_95": [
+              -0.36325225638535064,
+              -0.25009623615491716
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6547403459379275,
+            "interval_95": [
+              0.6129062909666336,
+              0.6965744009092214
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.8415826956425083,
+            "interval_95": [
+              0.7914506724373066,
+              0.89171471884771
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.934857671914538,
+            "interval_95": [
+              0.914889962867003,
+              0.9548253809620729
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.8420614421183948,
+            "interval_95": [
+              0.7589515457141806,
+              0.9251713385226091
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 860.8593183892189,
+            "interval_95": [
+              704.6199399067348,
+              1017.0986968717029
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.71901593519793,
+            "interval_95": [
+              1.9893166467055399,
+              3.44871522369032
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.06323093512266313,
+            "interval_95": [
+              0.02369825080817168,
+              0.10276361943715459
+            ],
+            "replications": 30
+          },
+          "selected_supported": 828,
+          "exceptional_selected": 287
+        }
+      }
+    },
+    "rare_breakthroughs": {
+      "description": "Original mixture plus a 6% chance of a positive Pareto(2.5) breakthrough, minimum .35 and cap 2 log-odds units.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92003000,
+        92003001,
+        92003002,
+        92003003,
+        92003004,
+        92003005,
+        92003006,
+        92003007,
+        92003008,
+        92003009,
+        92003010,
+        92003011,
+        92003012,
+        92003013,
+        92003014,
+        92003015,
+        92003016,
+        92003017,
+        92003018,
+        92003019,
+        92003020,
+        92003021,
+        92003022,
+        92003023,
+        92003024,
+        92003025,
+        92003026,
+        92003027,
+        92003028,
+        92003029
+      ],
+      "selected_total": 497,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 0.2408160071375212,
+            "interval_95": [
+              0.17158122496776695,
+              0.3100507893072754
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6644189285228016,
+            "interval_95": [
+              0.6205148407631365,
+              0.7083230162824667
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.8591216766231641,
+            "interval_95": [
+              0.7967818006341298,
+              0.9214615526121983
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9200632527374014,
+            "interval_95": [
+              0.8959987980474228,
+              0.9441277074273801
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.7073822527077384,
+            "interval_95": [
+              0.6132486510287222,
+              0.8015158543867545
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 418.1355652002929,
+            "interval_95": [
+              307.93654929791285,
+              528.3345811026729
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.69952264692472,
+            "interval_95": [
+              2.7749453694230315,
+              4.6240999244264085
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 497,
+          "exceptional_selected": 178
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.4085849775226056,
+            "interval_95": [
+              -0.49955204267787173,
+              -0.31761791236733944
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.8219182473680797,
+            "interval_95": [
+              0.761395413989931,
+              0.8824410807462284
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 1.1256979452064089,
+            "interval_95": [
+              1.0176862289427215,
+              1.2337096614700962
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.8394417522049102,
+            "interval_95": [
+              0.8122525229991104,
+              0.86663098141071
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 1.2942479635721826,
+            "interval_95": [
+              1.134211452970331,
+              1.4542844741740342
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 714.5134021614,
+            "interval_95": [
+              578.1206925169209,
+              850.906111805879
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.491528049291431,
+            "interval_95": [
+              2.6159914709009,
+              4.3670646276819625
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.15749931884527815,
+            "interval_95": [
+              0.09374173213492704,
+              0.22125690555562927
+            ],
+            "replications": 30
+          },
+          "selected_supported": 497,
+          "exceptional_selected": 178
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.4019446718798372,
+            "interval_95": [
+              -0.4916260363238925,
+              -0.31226330743578185
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.8157740585291625,
+            "interval_95": [
+              0.7568272637640083,
+              0.8747208532943167
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 1.1119440903384692,
+            "interval_95": [
+              1.0090919340762181,
+              1.2147962466007203
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.8394417522049102,
+            "interval_95": [
+              0.8122525229991104,
+              0.86663098141071
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 1.2765409780162085,
+            "interval_95": [
+              1.1213548069720156,
+              1.4317271490604013
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 703.5516233133328,
+            "interval_95": [
+              569.6169715510702,
+              837.4862750755955
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.491528049291431,
+            "interval_95": [
+              2.6159914709009,
+              4.3670646276819625
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.15135513000636086,
+            "interval_95": [
+              0.08912131134038997,
+              0.21358894867233175
+            ],
+            "replications": 30
+          },
+          "selected_supported": 497,
+          "exceptional_selected": 178
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.09951085948383374,
+            "interval_95": [
+              -0.1674593529978179,
+              -0.0315623659698496
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6576391960378477,
+            "interval_95": [
+              0.610443865438265,
+              0.7048345266374304
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.8479073181939183,
+            "interval_95": [
+              0.7784450526625611,
+              0.9173695837252754
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9221688737246012,
+            "interval_95": [
+              0.8960598903630219,
+              0.9482778570861805
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.8162010259876599,
+            "interval_95": [
+              0.706452946555032,
+              0.9259491054202877
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 271.19996892056054,
+            "interval_95": [
+              179.4956919651046,
+              362.9042458760165
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 3.69952264692472,
+            "interval_95": [
+              2.7749453694230315,
+              4.6240999244264085
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.006779732484953888,
+            "interval_95": [
+              -0.03942156870392265,
+              0.02586210373401488
+            ],
+            "replications": 30
+          },
+          "selected_supported": 497,
+          "exceptional_selected": 178
+        }
+      }
+    },
+    "prior_shift": {
+      "description": "Original mixture shifted upward by .25 log-odds units; history unchanged.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92004000,
+        92004001,
+        92004002,
+        92004003,
+        92004004,
+        92004005,
+        92004006,
+        92004007,
+        92004008,
+        92004009,
+        92004010,
+        92004011,
+        92004012,
+        92004013,
+        92004014,
+        92004015,
+        92004016,
+        92004017,
+        92004018,
+        92004019,
+        92004020,
+        92004021,
+        92004022,
+        92004023,
+        92004024,
+        92004025,
+        92004026,
+        92004027,
+        92004028,
+        92004029
+      ],
+      "selected_total": 1665,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 0.024462078593450298,
+            "interval_95": [
+              -0.013897646564964488,
+              0.06282180375186508
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6122062754801053,
+            "interval_95": [
+              0.585842547767012,
+              0.6385700031931987
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7869531256975726,
+            "interval_95": [
+              0.7510493630808532,
+              0.8228568883142919
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9554226175001006,
+            "interval_95": [
+              0.9450773873711216,
+              0.9657678476290796
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.6226549901781876,
+            "interval_95": [
+              0.5866088371464913,
+              0.6587011432098839
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 436.6282646051222,
+            "interval_95": [
+              294.8398522611648,
+              578.4166769490796
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.7232998179496974,
+            "interval_95": [
+              0.333398793832439,
+              1.113200842066956
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1665,
+          "exceptional_selected": 760
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.6146234722411447,
+            "interval_95": [
+              -0.6567451612437554,
+              -0.572501783238534
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.7922334556222956,
+            "interval_95": [
+              0.7611608407569816,
+              0.8233060704876096
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 1.0294033727812426,
+            "interval_95": [
+              0.9856388394947061,
+              1.073167906067779
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.860384685640592,
+            "interval_95": [
+              0.8447579539449489,
+              0.8760114173362351
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.9619441743792078,
+            "interval_95": [
+              0.9081722890028979,
+              1.0157160597555175
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 3411.4785347293086,
+            "interval_95": [
+              3171.619318624049,
+              3651.3377508345684
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.6728966629685438,
+            "interval_95": [
+              0.28200867287940806,
+              1.0637846530576796
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.18002718014219038,
+            "interval_95": [
+              0.15199650247610175,
+              0.208057857808279
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1665,
+          "exceptional_selected": 760
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.6126865539161103,
+            "interval_95": [
+              -0.65478586703513,
+              -0.5705872407970906
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.7910085518663911,
+            "interval_95": [
+              0.7599663284699358,
+              0.8220507752628463
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 1.0278419680000053,
+            "interval_95": [
+              0.984116280843056,
+              1.0715676551569544
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.8610019695912093,
+            "interval_95": [
+              0.845163267535409,
+              0.8768406716470096
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.9595601544148676,
+            "interval_95": [
+              0.9058377915403014,
+              1.0132825172894337
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 3400.741377053405,
+            "interval_95": [
+              3161.0197390853236,
+              3640.463015021486
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.6728966629685438,
+            "interval_95": [
+              0.28200867287940806,
+              1.0637846530576796
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.1788022763862861,
+            "interval_95": [
+              0.15084938780467558,
+              0.20675516496789662
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1665,
+          "exceptional_selected": 760
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.4260911201909552,
+            "interval_95": [
+              -0.4715780920369576,
+              -0.38060414834495276
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.7324333237558995,
+            "interval_95": [
+              0.7001246987529893,
+              0.7647419487588097
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.9426499934130632,
+            "interval_95": [
+              0.8981637694736238,
+              0.9871362173525027
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9054761915107952,
+            "interval_95": [
+              0.8894316589430087,
+              0.9215207240785817
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.7834717744226675,
+            "interval_95": [
+              0.7299752210963381,
+              0.8369683277489969
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 2367.040831476982,
+            "interval_95": [
+              2110.713314182303,
+              2623.368348771661
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 0.7232998179496974,
+            "interval_95": [
+              0.333398793832439,
+              1.113200842066956
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.12022704827579418,
+            "interval_95": [
+              0.09982267289780883,
+              0.14063142365377954
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1665,
+          "exceptional_selected": 760
+        }
+      }
+    },
+    "temporal_shift": {
+      "description": "Original mixture plus -.12, 0, .12, .24 log-odds by month; traffic grows 20% per month.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92005000,
+        92005001,
+        92005002,
+        92005003,
+        92005004,
+        92005005,
+        92005006,
+        92005007,
+        92005008,
+        92005009,
+        92005010,
+        92005011,
+        92005012,
+        92005013,
+        92005014,
+        92005015,
+        92005016,
+        92005017,
+        92005018,
+        92005019,
+        92005020,
+        92005021,
+        92005022,
+        92005023,
+        92005024,
+        92005025,
+        92005026,
+        92005027,
+        92005028,
+        92005029
+      ],
+      "selected_total": 938,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 0.1078358020447439,
+            "interval_95": [
+              0.06912023075534321,
+              0.14655137333414459
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.4808023191846492,
+            "interval_95": [
+              0.45310517050093513,
+              0.5084994678683633
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.614721163561702,
+            "interval_95": [
+              0.5782392738587773,
+              0.6512030532646268
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9365557239307875,
+            "interval_95": [
+              0.9189498271924303,
+              0.9541616206691446
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.45356332840744795,
+            "interval_95": [
+              0.38959762241131785,
+              0.5175290344035781
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 372.3041483986063,
+            "interval_95": [
+              277.44286325540054,
+              467.16543354181204
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.050622777652553,
+            "interval_95": [
+              1.3742243079538592,
+              2.727021247351247
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 938,
+          "exceptional_selected": 236
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.17518665378553358,
+            "interval_95": [
+              -0.21094585734139173,
+              -0.13942745022967543
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.4895854774178998,
+            "interval_95": [
+              0.4616369363161583,
+              0.5175340185196413
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.6340345006317911,
+            "interval_95": [
+              0.5931629946428605,
+              0.6749060066207218
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9232436107479198,
+            "interval_95": [
+              0.9026069820313943,
+              0.9438802394644453
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.6055462005293222,
+            "interval_95": [
+              0.5343027101156101,
+              0.6767896909430342
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 562.9901700250496,
+            "interval_95": [
+              446.3192399099699,
+              679.6611001401293
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 1.9694723391526616,
+            "interval_95": [
+              1.237520005507297,
+              2.7014246727980264
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.00878315823325065,
+            "interval_95": [
+              -0.012248842441025625,
+              0.029815158907526926
+            ],
+            "replications": 30
+          },
+          "selected_supported": 938,
+          "exceptional_selected": 236
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.17441914409357814,
+            "interval_95": [
+              -0.2101647554684052,
+              -0.13867353271875107
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.4892858379414876,
+            "interval_95": [
+              0.4613357186566566,
+              0.5172359572263187
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.6335804486339611,
+            "interval_95": [
+              0.5927232874125442,
+              0.674437609855378
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9232436107479198,
+            "interval_95": [
+              0.9026069820313943,
+              0.9438802394644453
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.6042712546319602,
+            "interval_95": [
+              0.5331664417533638,
+              0.6753760675105566
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 560.9158459436838,
+            "interval_95": [
+              444.5854417039948,
+              677.2462501833729
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 1.9694723391526616,
+            "interval_95": [
+              1.237520005507297,
+              2.7014246727980264
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.008483518756838448,
+            "interval_95": [
+              -0.01248887965312341,
+              0.029455917166800308
+            ],
+            "replications": 30
+          },
+          "selected_supported": 938,
+          "exceptional_selected": 236
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.1343500559111541,
+            "interval_95": [
+              -0.17028743490515708,
+              -0.0984126769171511
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.47786543895796046,
+            "interval_95": [
+              0.4477409947307818,
+              0.5079898831851392
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.6166281106528976,
+            "interval_95": [
+              0.5732453804805967,
+              0.6600108408251985
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9301792724620038,
+            "interval_95": [
+              0.9103931613149705,
+              0.9499653836090372
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.5148284104949591,
+            "interval_95": [
+              0.4438468636331314,
+              0.5858099573567868
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 464.9797192437419,
+            "interval_95": [
+              373.9298035833122,
+              556.0296349041716
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.050622777652553,
+            "interval_95": [
+              1.3742243079538592,
+              2.727021247351247
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.002936880226688763,
+            "interval_95": [
+              -0.020952139897660923,
+              0.015078379444283396
+            ],
+            "replications": 30
+          },
+          "selected_supported": 938,
+          "exceptional_selected": 236
+        }
+      }
+    },
+    "low_power": {
+      "description": "Original effects; control n is log-uniform from 200 to 2,000.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92006000,
+        92006001,
+        92006002,
+        92006003,
+        92006004,
+        92006005,
+        92006006,
+        92006007,
+        92006008,
+        92006009,
+        92006010,
+        92006011,
+        92006012,
+        92006013,
+        92006014,
+        92006015,
+        92006016,
+        92006017,
+        92006018,
+        92006019,
+        92006020,
+        92006021,
+        92006022,
+        92006023,
+        92006024,
+        92006025,
+        92006026,
+        92006027,
+        92006028,
+        92006029
+      ],
+      "selected_total": 170,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 2.9815521781497885,
+            "interval_95": [
+              2.508193384004828,
+              3.454910972294749
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 3.111427476342252,
+            "interval_95": [
+              2.6624705020491564,
+              3.5603844506353473
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 3.746347137122348,
+            "interval_95": [
+              3.305475633706571,
+              4.187218640538124
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.7682900432900432,
+            "interval_95": [
+              0.6907070677792976,
+              0.8458730188007889
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 2.299371993881625,
+            "interval_95": [
+              1.3462872827506176,
+              3.252456705012632
+            ],
+            "replications": 21
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 1626.08241846564,
+            "interval_95": [
+              1267.0570216517879,
+              1985.1078152794923
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 17.929143090439585,
+            "interval_95": [
+              15.259268899854547,
+              20.599017281024622
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 170,
+          "exceptional_selected": 32
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.2070317623599457,
+            "interval_95": [
+              -0.5486974546801424,
+              0.13463392996025098
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 1.4671330486297305,
+            "interval_95": [
+              1.3080522115919084,
+              1.6262138856675525
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 1.6782324885108624,
+            "interval_95": [
+              1.518015942605275,
+              1.8384490344164497
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9688492063492063,
+            "interval_95": [
+              0.9399594990343298,
+              0.9977389136640828
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 2.046984295258054,
+            "interval_95": [
+              1.6701114941055382,
+              2.42385709641057
+            ],
+            "replications": 21
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 311.8488849531667,
+            "interval_95": [
+              236.5229543245029,
+              387.1748155818305
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 18.8310427872529,
+            "interval_95": [
+              15.974177268023242,
+              21.68790830648256
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -1.6442944277125213,
+            "interval_95": [
+              -2.0868676048918253,
+              -1.201721250533217
+            ],
+            "replications": 30
+          },
+          "selected_supported": 170,
+          "exceptional_selected": 32
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.20453125994417654,
+            "interval_95": [
+              -0.5461162171553324,
+              0.1370536972669794
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 1.4669324852051193,
+            "interval_95": [
+              1.307982061367839,
+              1.6258829090423996
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 1.6777719485365776,
+            "interval_95": [
+              1.5175104782956061,
+              1.838033418777549
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9688492063492063,
+            "interval_95": [
+              0.9399594990343298,
+              0.9977389136640828
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 2.0446869507359287,
+            "interval_95": [
+              1.6681571053328197,
+              2.4212167961390376
+            ],
+            "replications": 21
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 311.6051200687035,
+            "interval_95": [
+              236.36480298792242,
+              386.8454371494846
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 18.8310427872529,
+            "interval_95": [
+              15.974177268023242,
+              21.68790830648256
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -1.6444949911371316,
+            "interval_95": [
+              -2.0870486236026067,
+              -1.2019413586716565
+            ],
+            "replications": 30
+          },
+          "selected_supported": 170,
+          "exceptional_selected": 32
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.026370190370262246,
+            "interval_95": [
+              -0.36035298457791437,
+              0.3076126038373899
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 1.5102637591804104,
+            "interval_95": [
+              1.3397845737879857,
+              1.6807429445728352
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 1.764605492113514,
+            "interval_95": [
+              1.5883098070127268,
+              1.940901177214301
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9688492063492063,
+            "interval_95": [
+              0.9399594990343298,
+              0.9977389136640828
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 2.275551544491192,
+            "interval_95": [
+              1.9717348840571347,
+              2.579368204925249
+            ],
+            "replications": 21
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 371.1599760436033,
+            "interval_95": [
+              291.25115558180227,
+              451.06879650540435
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 17.929143090439585,
+            "interval_95": [
+              15.259268899854547,
+              20.599017281024622
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -1.6011637171618411,
+            "interval_95": [
+              -2.0883947224947597,
+              -1.1139327118289226
+            ],
+            "replications": 30
+          },
+          "selected_supported": 170,
+          "exceptional_selected": 32
+        }
+      }
+    },
+    "abn": {
+      "description": "Four independently generated treatments share one sampled control. At most one variant can launch.",
+      "config": {
+        "scenario": "retention",
+        "metric": "D7 retention",
+        "baseline": 0.24,
+        "interventions": [
+          "Interest-based welcome feed",
+          "First-week community digest",
+          "Follow recommendations",
+          "Small-group introductions",
+          "Topic discovery prompts",
+          "Return-to-conversation shortcut",
+          "Friend activity highlights",
+          "New member discussion",
+          "Saved-post reminders",
+          "Community welcome notes",
+          "Weekly interest roundup",
+          "Simplified notification settings"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "hypothetical-ab-v1",
+        "calibration_id": null
+      },
+      "exception_threshold_probability": 0.05,
+      "model_ids": {
+        "empirical_bayes": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+        "hierarchical": "9a926fb0a063437fa8bb8e37c9dc6342f561aa7b75ec909a23bc3c49278af279",
+        "robust": "26f66903a4a4c1481a91a011ee89819d7964216f356078c6898f0d56d20fd0de"
+      },
+      "seeds": [
+        92007000,
+        92007001,
+        92007002,
+        92007003,
+        92007004,
+        92007005,
+        92007006,
+        92007007,
+        92007008,
+        92007009,
+        92007010,
+        92007011,
+        92007012,
+        92007013,
+        92007014,
+        92007015,
+        92007016,
+        92007017,
+        92007018,
+        92007019,
+        92007020,
+        92007021,
+        92007022,
+        92007023,
+        92007024,
+        92007025,
+        92007026,
+        92007027,
+        92007028,
+        92007029
+      ],
+      "selected_total": 1059,
+      "unsupported_experiments": 0,
+      "supported_experiments": 1800,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 0.25504854437595836,
+            "interval_95": [
+              0.2140554314709796,
+              0.2960416572809371
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.6056791193771677,
+            "interval_95": [
+              0.5793064109778444,
+              0.6320518277764909
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7902984149510964,
+            "interval_95": [
+              0.7555490190502765,
+              0.8250478108519164
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9421623553554507,
+            "interval_95": [
+              0.928602412078711,
+              0.9557222986321904
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.6109068161393169,
+            "interval_95": [
+              0.5387696460977054,
+              0.6830439861809283
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 905.9418712717236,
+            "interval_95": [
+              747.7023964712628,
+              1064.1813460721844
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 8.02923982771179,
+            "interval_95": [
+              6.785199002728122,
+              9.273280652695457
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1059,
+          "exceptional_selected": 216
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.06437561836837147,
+            "interval_95": [
+              -0.10360228032878901,
+              -0.02514895640795392
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.5528189453740694,
+            "interval_95": [
+              0.5366500766066087,
+              0.5689878141415301
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7046003658132187,
+            "interval_95": [
+              0.6812174668569129,
+              0.7279832647695246
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9420798280508743,
+            "interval_95": [
+              0.9286605376997498,
+              0.9554991184019989
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.6630746720306482,
+            "interval_95": [
+              0.5804781461568804,
+              0.7456711979044159
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 356.5699763511657,
+            "interval_95": [
+              271.9166621628346,
+              441.22329053949676
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 7.479001014320664,
+            "interval_95": [
+              6.1905783522624445,
+              8.767423676378883
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.052860174003098385,
+            "interval_95": [
+              -0.07579526312979028,
+              -0.029925084876406494
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1059,
+          "exceptional_selected": 216
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.06386334832758979,
+            "interval_95": [
+              -0.10308447000877063,
+              -0.024642226646408937
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.5527358676605263,
+            "interval_95": [
+              0.5365697127618312,
+              0.5689020225592214
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7045245970911057,
+            "interval_95": [
+              0.6811412414771283,
+              0.7279079527050831
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.943314395952109,
+            "interval_95": [
+              0.9298719384617676,
+              0.9567568534424503
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.6625638127388862,
+            "interval_95": [
+              0.5800064799553873,
+              0.7451211455223851
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 355.6918334804535,
+            "interval_95": [
+              271.14357826610694,
+              440.2400886948001
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 7.479001014320664,
+            "interval_95": [
+              6.1905783522624445,
+              8.767423676378883
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.052943251716641535,
+            "interval_95": [
+              -0.07584135686050975,
+              -0.030045146572773317
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1059,
+          "exceptional_selected": 216
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.142153597627282,
+            "interval_95": [
+              -0.18285592296940112,
+              -0.10145127228516287
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.5747396186402469,
+            "interval_95": [
+              0.557293432988056,
+              0.5921858042924378
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.7332484889614311,
+            "interval_95": [
+              0.708547469166274,
+              0.7579495087565883
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9436169089089422,
+            "interval_95": [
+              0.9296621967710869,
+              0.9575716210467976
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.7304983926606881,
+            "interval_95": [
+              0.6401266422554847,
+              0.8208701430658915
+            ],
+            "replications": 30
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 524.3526427514851,
+            "interval_95": [
+              400.8039301753467,
+              647.9013553276234
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 7.716640044344219,
+            "interval_95": [
+              6.467341233455512,
+              8.965938855232926
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.030939500736920873,
+            "interval_95": [
+              -0.0571010481904553,
+              -0.004777953283386448
+            ],
+            "replications": 30
+          },
+          "selected_supported": 1059,
+          "exceptional_selected": 216
+        }
+      }
+    },
+    "archive_ctr": {
+      "description": "Frozen archive-calibrated pair generator, using archive-fitted estimator histories.",
+      "config": {
+        "scenario": "upworthy_ctr",
+        "metric": "Click-through rate",
+        "baseline": 0.011630584983878397,
+        "interventions": [
+          "Headline framing",
+          "Image and headline pairing",
+          "Specificity in the headline",
+          "Question-led headline",
+          "Story preview",
+          "Concise headline",
+          "Human-interest framing",
+          "Curiosity-led headline",
+          "Context in the headline",
+          "Headline readability",
+          "Image emphasis",
+          "Alternative story angle"
+        ],
+        "seed": 20261108,
+        "size": 36,
+        "version": "upworthy-paired-ctr-v1",
+        "calibration_id": "0ecc12966eaec4b87a76092c0aed1a7145c23d3b2abdbcfa4171d759479c13d2"
+      },
+      "exception_threshold_probability": 0.01,
+      "model_ids": {
+        "empirical_bayes": "c74ba2fe602514ddfb28bf7c2c85a7d8cc4fd4315327b2dda845ac47f2adeab3",
+        "hierarchical": "7883c016cce996e1d6c3372801c9ef2f50a28037a3b91ec16af3844ecd5ebe12",
+        "robust": "dd4735a53529a6f06efcd460d5d24f0bd5193bcec07678dffddddd30a715214b"
+      },
+      "seeds": [
+        92008000,
+        92008001,
+        92008002,
+        92008003,
+        92008004,
+        92008005,
+        92008006,
+        92008007,
+        92008008,
+        92008009,
+        92008010,
+        92008011,
+        92008012,
+        92008013,
+        92008014,
+        92008015,
+        92008016,
+        92008017,
+        92008018,
+        92008019,
+        92008020,
+        92008021,
+        92008022,
+        92008023,
+        92008024,
+        92008025,
+        92008026,
+        92008027,
+        92008028,
+        92008029
+      ],
+      "selected_total": 214,
+      "unsupported_experiments": 21,
+      "supported_experiments": 1779,
+      "methods": {
+        "naive": {
+          "bias_pp": {
+            "mean": 0.26850683397505526,
+            "interval_95": [
+              0.2153191317360483,
+              0.3216945362140622
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.3353979749760308,
+            "interval_95": [
+              0.28851517038163715,
+              0.38228077957042444
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.3999084389963521,
+            "interval_95": [
+              0.34803646553771345,
+              0.45178041245499073
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.8672089947089946,
+            "interval_95": [
+              0.8035700039839291,
+              0.9308479854340601
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.31537949342609434,
+            "interval_95": [
+              0.1902906269026024,
+              0.4404683599495863
+            ],
+            "replications": 24
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 190.6597163908361,
+            "interval_95": [
+              151.149103672785,
+              230.17032910888722
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.6913595839054696,
+            "interval_95": [
+              2.257868815963264,
+              3.1248503518476753
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "replications": 30
+          },
+          "selected_supported": 213,
+          "exceptional_selected": 57
+        },
+        "empirical_bayes": {
+          "bias_pp": {
+            "mean": -0.3021865938972886,
+            "interval_95": [
+              -0.3996676300045524,
+              -0.20470555779002475
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.43094306960505474,
+            "interval_95": [
+              0.3395219726059718,
+              0.5223641666041376
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.6184180038050474,
+            "interval_95": [
+              0.45693333955565857,
+              0.7799026680544363
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.7570033670033671,
+            "interval_95": [
+              0.6892895544938451,
+              0.8247171795128891
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 1.0713568512944622,
+            "interval_95": [
+              0.8714361484649441,
+              1.2712775541239805
+            ],
+            "replications": 24
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 228.4182436076503,
+            "interval_95": [
+              158.32745281418954,
+              298.5090344011111
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.6913595839054696,
+            "interval_95": [
+              2.257868815963264,
+              3.1248503518476753
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.09554509462902396,
+            "interval_95": [
+              0.0038918738763102784,
+              0.18719831538173765
+            ],
+            "replications": 30
+          },
+          "selected_supported": 213,
+          "exceptional_selected": 57
+        },
+        "hierarchical": {
+          "bias_pp": {
+            "mean": -0.30069715910476386,
+            "interval_95": [
+              -0.3976375374134385,
+              -0.20375678079608922
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.4297343489978159,
+            "interval_95": [
+              0.3389006155842774,
+              0.5205680824113543
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.6159477638078837,
+            "interval_95": [
+              0.4557725962832402,
+              0.7761229313325273
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.7570033670033671,
+            "interval_95": [
+              0.6892895544938451,
+              0.8247171795128891
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 1.0669967940468854,
+            "interval_95": [
+              0.868517188442514,
+              1.2654763996512568
+            ],
+            "replications": 24
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 227.32982837424746,
+            "interval_95": [
+              157.62574217375843,
+              297.0339145747365
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.6913595839054696,
+            "interval_95": [
+              2.257868815963264,
+              3.1248503518476753
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": 0.09433637402178502,
+            "interval_95": [
+              0.0032100042010116403,
+              0.1854627438425584
+            ],
+            "replications": 30
+          },
+          "selected_supported": 213,
+          "exceptional_selected": 57
+        },
+        "robust": {
+          "bias_pp": {
+            "mean": -0.1421646891466059,
+            "interval_95": [
+              -0.1963265003262069,
+              -0.08800287796700491
+            ],
+            "replications": 30
+          },
+          "mae_pp": {
+            "mean": 0.26776319197390347,
+            "interval_95": [
+              0.23732301063222327,
+              0.29820337331558366
+            ],
+            "replications": 30
+          },
+          "rmse_pp": {
+            "mean": 0.33864515289897823,
+            "interval_95": [
+              0.29663796564241274,
+              0.3806523401555437
+            ],
+            "replications": 30
+          },
+          "coverage": {
+            "mean": 0.9365343915343914,
+            "interval_95": [
+              0.9007013389424869,
+              0.9723674441262959
+            ],
+            "replications": 30
+          },
+          "exceptional_mae_pp": {
+            "mean": 0.493818845158132,
+            "interval_95": [
+              0.40334311008073387,
+              0.5842945802355302
+            ],
+            "replications": 24
+          },
+          "cumulative_absolute_error_conversions": {
+            "mean": 117.1356648791518,
+            "interval_95": [
+              87.0114011624478,
+              147.25992859585583
+            ],
+            "replications": 30
+          },
+          "decision_regret_conversions": {
+            "mean": 2.6913595839054696,
+            "interval_95": [
+              2.257868815963264,
+              3.1248503518476753
+            ],
+            "replications": 30
+          },
+          "mae_change_vs_naive_pp": {
+            "mean": -0.06763478300212732,
+            "interval_95": [
+              -0.1269818067196602,
+              -0.008287759284594444
+            ],
+            "replications": 30
+          },
+          "selected_supported": 213,
+          "exceptional_selected": 57
+        }
+      }
+    }
+  },
+  "artifact_id": "4d9ce7b9e514f4bc9dda85c2a10f44b4732074104969fe3e1c1992af83b971b5"
+}

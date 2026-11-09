@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "model_version": "normal-normal-rd-v1",
+  "scope": {
+    "scenario": "retention",
+    "metric": "D7 retention",
+    "generator_version": "hypothetical-ab-v1",
+    "calibration_id": null,
+    "baseline_metadata": 0.24
+  },
+  "training": {
+    "kind": "independent synthetic historical portfolio",
+    "simulation_seed": 73000001,
+    "config": {
+      "scenario": "retention",
+      "metric": "D7 retention",
+      "baseline": 0.24,
+      "interventions": [
+        "Interest-based welcome feed",
+        "First-week community digest",
+        "Follow recommendations",
+        "Small-group introductions",
+        "Topic discovery prompts",
+        "Return-to-conversation shortcut",
+        "Friend activity highlights",
+        "New member discussion",
+        "Saved-post reminders",
+        "Community welcome notes",
+        "Weekly interest roundup",
+        "Simplified notification settings"
+      ],
+      "seed": 73000001,
+      "size": 3000,
+      "version": "hypothetical-ab-v1",
+      "calibration_id": null
+    },
+    "description": "3,000 independent synthetic historical experiments under this hypothetical program; no real product data.",
+    "observations_sha256": "9bfb84b737119f6d5775833cde2d23633681fd29be1a062f660baebd624dccc8",
+    "n": 3000
+  },
+  "fit": {
+    "mean": 0.0043389728949943815,
+    "variance": 0.0004507580563246446,
+    "n_history": 3000,
+    "log_likelihood": 7104.514628919629,
+    "boundary": false
+  },
+  "fitting_uncertainty": {
+    "replications": 100,
+    "seed": 1907,
+    "method": "experiment-level percentile bootstrap",
+    "mean_interval_95": [
+      0.003444426378752767,
+      0.005041352457511373
+    ],
+    "sd_interval_95": [
+      0.020534341534213463,
+      0.02182564358653801
+    ],
+    "limitation": "These intervals describe fitting uncertainty; predictive credible intervals do not integrate it."
+  },
+  "assumptions": [
+    "Independent Normal risk-difference prior and approximate Normal measurement errors.",
+    "Half-count-stabilized binomial SE; historical sparse pairs retained to avoid outcome-based trimming.",
+    "Estimated SE is treated as known; prior effect/precision independence can fail.",
+    "Conditional plug-in credible intervals omit hyperparameter uncertainty and are not guaranteed after selection.",
+    "A compatible model can still worsen estimates or under-cover extreme effects."
+  ],
+  "reference": "https://www.amazon.science/publications/overcoming-the-winners-curse-leveraging-bayesian-inference-to-improve-estimates-of-the-impact-of-features-launched-via-a-b-tests",
+  "artifact_id": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b"
+}

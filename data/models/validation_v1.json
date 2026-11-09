@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "replications": 20,
+  "size_per_replication": 100,
+  "seed_start": 73000101,
+  "policy": "positive observed effect and two-sided unadjusted p < 0.05",
+  "model_fitting": "Frozen before validation; no refitting or tuning on truth.",
+  "interval_method": "t interval over independent portfolio-level metrics; not hyperparameter uncertainty.",
+  "limitations": "Initial matched-scenario checks, not a comprehensive stress benchmark or real-data truth validation.",
+  "scenarios": {
+    "retention": {
+      "artifact_id": "c81edfcaa8910b690df97d0acfbf7137aab2237490bb53813564896ad380607b",
+      "selected_treatments": 517,
+      "unsupported_selected": 0,
+      "comparison_population": "Selected treatments supported by the correction; same records for both estimators.",
+      "metrics": {
+        "naive_mae": {
+          "mean": 0.006467568782349162,
+          "interval_95": [
+            0.005969823825845665,
+            0.006965313738852659
+          ],
+          "replications": 20
+        },
+        "posterior_mae": {
+          "mean": 0.005801705100179052,
+          "interval_95": [
+            0.0052968942881530265,
+            0.006306515912205077
+          ],
+          "replications": 20
+        },
+        "naive_bias": {
+          "mean": 0.003241746018530535,
+          "interval_95": [
+            0.0027797114484571263,
+            0.0037037805886039436
+          ],
+          "replications": 20
+        },
+        "posterior_bias": {
+          "mean": -0.00016615559635811114,
+          "interval_95": [
+            -0.0006972372676892174,
+            0.0003649260749729952
+          ],
+          "replications": 20
+        },
+        "naive_coverage": {
+          "mean": 0.916466355150763,
+          "interval_95": [
+            0.89415366255376,
+            0.938779047747766
+          ],
+          "replications": 20
+        },
+        "posterior_coverage": {
+          "mean": 0.9182172038391115,
+          "interval_95": [
+            0.8945783088370813,
+            0.9418560988411417
+          ],
+          "replications": 20
+        },
+        "posterior_all_coverage": {
+          "mean": 0.9489999999999998,
+          "interval_95": [
+            0.937445884597708,
+            0.9605541154022917
+          ],
+          "replications": 20
+        },
+        "fraction_improved": {
+          "mean": 0.5915946958325143,
+          "interval_95": [
+            0.5456206266193147,
+            0.637568765045714
+          ],
+          "replications": 20
+        },
+        "paired_mae_change": {
+          "mean": -0.0006658636821701106,
+          "interval_95": [
+            -0.0009532642016821197,
+            -0.00037846316265810145
+          ],
+          "replications": 20
+        }
+      }
+    },
+    "acquisition": {
+      "artifact_id": "0e8d3dd6f66e99a509eb65be96d53d824de2260413ecf2f18973747b0edb9a35",
+      "selected_treatments": 376,
+      "unsupported_selected": 0,
+      "comparison_population": "Selected treatments supported by the correction; same records for both estimators.",
+      "metrics": {
+        "naive_mae": {
+          "mean": 0.004415977114910411,
+          "interval_95": [
+            0.004028045235390832,
+            0.00480390899442999
+          ],
+          "replications": 20
+        },
+        "posterior_mae": {
+          "mean": 0.003669753042414269,
+          "interval_95": [
+            0.003386055778878751,
+            0.003953450305949787
+          ],
+          "replications": 20
+        },
+        "naive_bias": {
+          "mean": 0.0029159135035261912,
+          "interval_95": [
+            0.0023570805028206984,
+            0.003474746504231684
+          ],
+          "replications": 20
+        },
+        "posterior_bias": {
+          "mean": -0.0004279271716496048,
+          "interval_95": [
+            -0.001056518015912391,
+            0.00020066367261318147
+          ],
+          "replications": 20
+        },
+        "naive_coverage": {
+          "mean": 0.8935515779781159,
+          "interval_95": [
+            0.8544793451906643,
+            0.9326238107655676
+          ],
+          "replications": 20
+        },
+        "posterior_coverage": {
+          "mean": 0.9079305133814153,
+          "interval_95": [
+            0.8818997269569632,
+            0.9339612998058674
+          ],
+          "replications": 20
+        },
+        "posterior_all_coverage": {
+          "mean": 0.9484999999999999,
+          "interval_95": [
+            0.9366139082294599,
+            0.9603860917705399
+          ],
+          "replications": 20
+        },
+        "fraction_improved": {
+          "mean": 0.6228392162495675,
+          "interval_95": [
+            0.5703063117745998,
+            0.6753721207245352
+          ],
+          "replications": 20
+        },
+        "paired_mae_change": {
+          "mean": -0.0007462240724961407,
+          "interval_95": [
+            -0.0010444876208435898,
+            -0.00044796052414869153
+          ],
+          "replications": 20
+        }
+      }
+    },
+    "onboarding": {
+      "artifact_id": "6d7883e06bd797f5a31510266372ea76e176b95c985267303ad568509349d769",
+      "selected_treatments": 514,
+      "unsupported_selected": 0,
+      "comparison_population": "Selected treatments supported by the correction; same records for both estimators.",
+      "metrics": {
+        "naive_mae": {
+          "mean": 0.007169421335491588,
+          "interval_95": [
+            0.006575998494090619,
+            0.0077628441768925575
+          ],
+          "replications": 20
+        },
+        "posterior_mae": {
+          "mean": 0.006632730057002334,
+          "interval_95": [
+            0.006059622026951592,
+            0.0072058380870530766
+          ],
+          "replications": 20
+        },
+        "naive_bias": {
+          "mean": 0.0029473736585722355,
+          "interval_95": [
+            0.0021676612861560264,
+            0.0037270860309884446
+          ],
+          "replications": 20
+        },
+        "posterior_bias": {
+          "mean": -0.00047115739087638463,
+          "interval_95": [
+            -0.0012532807155235814,
+            0.0003109659337708121
+          ],
+          "replications": 20
+        },
+        "naive_coverage": {
+          "mean": 0.9305860279319799,
+          "interval_95": [
+            0.9034005161210512,
+            0.9577715397429085
+          ],
+          "replications": 20
+        },
+        "posterior_coverage": {
+          "mean": 0.9178810449138591,
+          "interval_95": [
+            0.8943765373725947,
+            0.9413855524551236
+          ],
+          "replications": 20
+        },
+        "posterior_all_coverage": {
+          "mean": 0.9490000000000001,
+          "interval_95": [
+            0.9384909084407159,
+            0.9595090915592842
+          ],
+          "replications": 20
+        },
+        "fraction_improved": {
+          "mean": 0.5416719026581436,
+          "interval_95": [
+            0.5017552097664553,
+            0.5815885955498319
+          ],
+          "replications": 20
+        },
+        "paired_mae_change": {
+          "mean": -0.0005366912784892555,
+          "interval_95": [
+            -0.0008936161984700031,
+            -0.00017976635850850791
+          ],
+          "replications": 20
+        }
+      }
+    },
+    "monetization": {
+      "artifact_id": "02d739190d811541deae745f070013180f5aeff38f35d2dc47675407fdf3fb6d",
+      "selected_treatments": 317,
+      "unsupported_selected": 0,
+      "comparison_population": "Selected treatments supported by the correction; same records for both estimators.",
+      "metrics": {
+        "naive_mae": {
+          "mean": 0.003662665376529528,
+          "interval_95": [
+            0.0031932799593965173,
+            0.004132050793662538
+          ],
+          "replications": 20
+        },
+        "posterior_mae": {
+          "mean": 0.002847594349411579,
+          "interval_95": [
+            0.002647685907689191,
+            0.0030475027911339666
+          ],
+          "replications": 20
+        },
+        "naive_bias": {
+          "mean": 0.0026877227545650004,
+          "interval_95": [
+            0.0020404351507764163,
+            0.0033350103583535845
+          ],
+          "replications": 20
+        },
+        "posterior_bias": {
+          "mean": -0.0005421553990638477,
+          "interval_95": [
+            -0.0011353543984554818,
+            5.104360032778636e-05
+          ],
+          "replications": 20
+        },
+        "naive_coverage": {
+          "mean": 0.9046011643884004,
+          "interval_95": [
+            0.8534073199965311,
+            0.9557950087802698
+          ],
+          "replications": 20
+        },
+        "posterior_coverage": {
+          "mean": 0.8946189304107598,
+          "interval_95": [
+            0.852011286610434,
+            0.9372265742110856
+          ],
+          "replications": 20
+        },
+        "posterior_all_coverage": {
+          "mean": 0.9490000000000002,
+          "interval_95": [
+            0.9404238422544525,
+            0.9575761577455478
+          ],
+          "replications": 20
+        },
+        "fraction_improved": {
+          "mean": 0.6200940207752195,
+          "interval_95": [
+            0.5437191001569092,
+            0.6964689413935298
+          ],
+          "replications": 20
+        },
+        "paired_mae_change": {
+          "mean": -0.0008150710271179499,
+          "interval_95": [
+            -0.0013229192071929166,
+            -0.0003072228470429832
+          ],
+          "replications": 20
+        }
+      }
+    },
+    "upworthy_ctr": {
+      "artifact_id": "c74ba2fe602514ddfb28bf7c2c85a7d8cc4fd4315327b2dda845ac47f2adeab3",
+      "selected_treatments": 231,
+      "unsupported_selected": 5,
+      "comparison_population": "Selected treatments supported by the correction; same records for both estimators.",
+      "metrics": {
+        "naive_mae": {
+          "mean": 0.003637073357099769,
+          "interval_95": [
+            0.00322119346675021,
+            0.004052953247449327
+          ],
+          "replications": 20
+        },
+        "posterior_mae": {
+          "mean": 0.004155030370899869,
+          "interval_95": [
+            0.0034075889278191744,
+            0.004902471813980563
+          ],
+          "replications": 20
+        },
+        "naive_bias": {
+          "mean": 0.0028894717831224447,
+          "interval_95": [
+            0.002336775005913041,
+            0.0034421685603318484
+          ],
+          "replications": 20
+        },
+        "posterior_bias": {
+          "mean": -0.002760567493476372,
+          "interval_95": [
+            -0.0035914100184672292,
+            -0.0019297249684855147
+          ],
+          "replications": 20
+        },
+        "naive_coverage": {
+          "mean": 0.8591017316017316,
+          "interval_95": [
+            0.8150688853427395,
+            0.9031345778607238
+          ],
+          "replications": 20
+        },
+        "posterior_coverage": {
+          "mean": 0.7236460761460761,
+          "interval_95": [
+            0.6694542772896136,
+            0.7778378750025386
+          ],
+          "replications": 20
+        },
+        "posterior_all_coverage": {
+          "mean": 0.890255346835704,
+          "interval_95": [
+            0.8777963952475063,
+            0.9027142984239016
+          ],
+          "replications": 20
+        },
+        "fraction_improved": {
+          "mean": 0.5952057664557664,
+          "interval_95": [
+            0.5347279820674506,
+            0.6556835508440821
+          ],
+          "replications": 20
+        },
+        "paired_mae_change": {
+          "mean": 0.0005179570138001005,
+          "interval_95": [
+            -0.00025399433772505073,
+            0.0012899083653252516
+          ],
+          "replications": 20
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "model_version": "normal-normal-rd-v1",
+  "scope": {
+    "scenario": "upworthy_ctr",
+    "metric": "Click-through rate",
+    "generator_version": "upworthy-paired-ctr-v1",
+    "calibration_id": "0ecc12966eaec4b87a76092c0aed1a7145c23d3b2abdbcfa4171d759479c13d2",
+    "baseline_metadata": 0.011630584983878397
+  },
+  "training": {
+    "kind": "real exploratory archive pairs",
+    "source_sha256": "8368313b060f4015a0c6fb34e6d788163cee29554144aba9390b14922eb9d8ce",
+    "pair_seed": 314159,
+    "sparse_pairs_retained": 59,
+    "description": "3,823 eligible exploratory Upworthy pairs; all outcomes, not editorial winners.",
+    "observations_sha256": "0d9efac2cac1673b5b9f5a2fb4e1390720773ae95f6cae7869459fc1914c5f50",
+    "n": 3823
+  },
+  "fit": {
+    "mean": 1.2345565493313191e-05,
+    "variance": 1.1850426658142774e-05,
+    "n_history": 3823,
+    "log_likelihood": 14953.58030349981,
+    "boundary": false
+  },
+  "fitting_uncertainty": {
+    "replications": 100,
+    "seed": 1907,
+    "method": "experiment-level percentile bootstrap",
+    "mean_interval_95": [
+      -0.00013081291759590305,
+      0.00018066863859447465
+    ],
+    "sd_interval_95": [
+      0.003248843627480663,
+      0.003638480745680012
+    ],
+    "limitation": "These intervals describe fitting uncertainty; predictive credible intervals do not integrate it."
+  },
+  "assumptions": [
+    "Independent Normal risk-difference prior and approximate Normal measurement errors.",
+    "Half-count-stabilized binomial SE; historical sparse pairs retained to avoid outcome-based trimming.",
+    "Estimated SE is treated as known; prior effect/precision independence can fail.",
+    "Conditional plug-in credible intervals omit hyperparameter uncertainty and are not guaranteed after selection.",
+    "A compatible model can still worsen estimates or under-cover extreme effects."
+  ],
+  "reference": "https://www.amazon.science/publications/overcoming-the-winners-curse-leveraging-bayesian-inference-to-improve-estimates-of-the-impact-of-features-launched-via-a-b-tests",
+  "artifact_id": "c74ba2fe602514ddfb28bf7c2c85a7d8cc4fd4315327b2dda845ac47f2adeab3"
+}

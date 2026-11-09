@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "model_version": "normal-normal-rd-v1",
+  "scope": {
+    "scenario": "monetization",
+    "metric": "Paid conversion",
+    "generator_version": "hypothetical-ab-v1",
+    "calibration_id": null,
+    "baseline_metadata": 0.05
+  },
+  "training": {
+    "kind": "independent synthetic historical portfolio",
+    "simulation_seed": 73000001,
+    "config": {
+      "scenario": "monetization",
+      "metric": "Paid conversion",
+      "baseline": 0.05,
+      "interventions": [
+        "Plan comparison redesign",
+        "In-product value recap",
+        "Trial milestone reminders",
+        "Annual plan explanation",
+        "Simplified upgrade flow",
+        "Usage-based value message",
+        "Team plan preview",
+        "Billing FAQ placement",
+        "Paid feature walkthrough",
+        "Trial progress dashboard",
+        "Upgrade confirmation clarity",
+        "End-of-trial summary"
+      ],
+      "seed": 73000001,
+      "size": 3000,
+      "version": "hypothetical-ab-v1",
+      "calibration_id": null
+    },
+    "description": "3,000 independent synthetic historical experiments under this hypothetical program; no real product data.",
+    "observations_sha256": "3905d72614d2490eab8bfe50eae24fbe5b941d8b0197e5ac237d5846ea15cbdb",
+    "n": 3000
+  },
+  "fit": {
+    "mean": 0.0008532894059444445,
+    "variance": 3.2296997561305286e-05,
+    "n_history": 3000,
+    "log_likelihood": 10666.616456629836,
+    "boundary": false
+  },
+  "fitting_uncertainty": {
+    "replications": 100,
+    "seed": 1907,
+    "method": "experiment-level percentile bootstrap",
+    "mean_interval_95": [
+      0.0006344166035865631,
+      0.0011139282330338534
+    ],
+    "sd_interval_95": [
+      0.005499097185476436,
+      0.005855134501861632
+    ],
+    "limitation": "These intervals describe fitting uncertainty; predictive credible intervals do not integrate it."
+  },
+  "assumptions": [
+    "Independent Normal risk-difference prior and approximate Normal measurement errors.",
+    "Half-count-stabilized binomial SE; historical sparse pairs retained to avoid outcome-based trimming.",
+    "Estimated SE is treated as known; prior effect/precision independence can fail.",
+    "Conditional plug-in credible intervals omit hyperparameter uncertainty and are not guaranteed after selection.",
+    "A compatible model can still worsen estimates or under-cover extreme effects."
+  ],
+  "reference": "https://www.amazon.science/publications/overcoming-the-winners-curse-leveraging-bayesian-inference-to-improve-estimates-of-the-impact-of-features-launched-via-a-b-tests",
+  "artifact_id": "02d739190d811541deae745f070013180f5aeff38f35d2dc47675407fdf3fb6d"
+}

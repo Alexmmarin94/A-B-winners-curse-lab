@@ -1,0 +1,15 @@
+raw_data/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.streamlit/secrets.toml
+.local/
+*.egg-info/
+dist/
+build/
+
+.env
+.env.*
+!.env.example

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "winners-curse-lab"
+version = "0.9.1"
+description = "An interactive laboratory for selection bias in experimentation"
+requires-python = ">=3.12"
+dependencies = [
+  "streamlit==1.67.0",
+  "numpy==2.5.4",
+  "pandas==2.3.3",
+  "scipy==1.18.1",
+  "plotly==6.9.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0"]
+
+[tool.setuptools.packages.find]
+include = ["app*", "src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
